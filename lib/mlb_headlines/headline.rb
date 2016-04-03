@@ -2,8 +2,6 @@ class MlbHeadlines::Headline
 
   attr_accessor :player, :position_team, :title, :time, :website_url, :description, :url, :doc
 
-  @@all = []
-
   #def self.new_from_index_page(title)
    # self.new(
    #   title.css("h4").text, 
@@ -13,23 +11,23 @@ class MlbHeadlines::Headline
     #  )
   #end
 
-  def initialize(player=nil, website_url=nil, title=nil, position_team=nil, time=nil, description=nil)
-    @player = player
-    @website_url = website_url
-    @title = title
-    @position_team = position_team
-    @time = time
-    @description = description
-    @@all << self
-  end
+  #def initialize(player=nil, website_url=nil, title=nil, position_team=nil, time=nil, description=nil)
+   # @player = player
+  #  @website_url = website_url
+   # @title = title
+   # @position_team = position_team
+   # @time = time
+   # @description = description
+   # @@all << self
+  #end
 
-  def self.all
-    @@all
-  end 
+  #def self.all
+  #  @@all
+  #end 
 
-  def self.find(id)
-    self.all[id-1]
-  end
+  #def self.find(id)
+  #  self.all[id-1]
+  #end
 
   def player #works
     @player = @doc.css(".players-annotated p a").text.strip
