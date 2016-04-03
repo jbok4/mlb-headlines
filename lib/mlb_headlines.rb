@@ -1,6 +1,5 @@
 require "mlb_headlines/version"
 require_relative '../config/environment'
 
-module MlbHeadlines
- 
+class MlbHeadlines
 end

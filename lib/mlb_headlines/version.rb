@@ -1,3 +1,3 @@
-module MlbHeadlines
+class MlbHeadlines
   VERSION = "0.1.0"
 end

@@ -1,28 +1,18 @@
 # MlbHeadlines
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/mlb_headlines`. To experiment with that code, run `bin/console` for an interactive prompt.
+This Ruby Gem provides a CLI to view the 50 best restaurants in the World as per the San Pellegrino sponsored 50 Best Restaurants in the World website.
 
-TODO: Delete this and the text above, and describe your gem
+
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'mlb_headlines'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install mlb_headlines
+$ gem install mlb_headlines
 
 ## Usage
 
-TODO: Write usage instructions here
+Type the below and follow the on screen prompts.
+
+$ mlb_headlines
 
 ## Development
 

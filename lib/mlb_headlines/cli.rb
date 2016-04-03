@@ -1,19 +1,19 @@
-class MLBHeadlines::CLI
+class MlbHeadlines::CLI
 
   def call
-    MLBHeadlines::Scraper.new.make_headlines
+    MlbHeadlines::Scraper.make_list
     puts "Up To The Minute MLB Player News–Get It While It's Hot!"
     start
   end  
 
   def start
-    print_headlines(input)
 
     puts ""
     puts "Which headline would you like more information on?"
     input = gets.strip
+    print_headlines
 
-    headline = MLBHeadlines::Headline.find(input.to_i)
+    headline = MlbHeadlines::Headline.find(input.to_i)
 
     print_headline(headline)
 
@@ -25,8 +25,8 @@ class MLBHeadlines::CLI
       start
     else
       puts ""
-      puts "Thankyou! Have a great day!"
-      exit
+      puts "Enjoy today's games!"
+      #exit
     end    
   end
 
@@ -35,7 +35,7 @@ class MLBHeadlines::CLI
     puts "----------- #{headline.player} - #{headline.position_team} -----------"
     puts ""
     puts "Title:              #{headline.title}"
-    puts "Time of Article:    #{headline.time}"
+    puts "Time:               #{headline.time}"
     puts "Link:               #{headline.website_url}"
     puts ""
     puts "---------------Description--------------"
@@ -44,13 +44,15 @@ class MLBHeadlines::CLI
     puts ""
   end
 
-  def print_headlines(from_number)
+  def print_headlines
     puts ""
-    puts "---------- Headlines #{from_number} - #{from_number+9} ----------"
+    puts "---------- Latest MLB Headlines ----------"
     puts ""
-    MLBHeadlines::Headline.all[from_number-1, 10].each.with_index(from_number) do |headline, index|
+    MlbHeadlines::Headline.all.each.with_index(input) do |headline, index|
       puts "#{index}. #{headline.player} - #{headline.position_team} - #{headline.title}"
     end  
   end 
 
 end  
+
+#MlbHeadlines::CLI.new.call
