@@ -1,6 +1,6 @@
 # MlbHeadlines
 
-This Ruby Gem provides a CLI to view the 50 best restaurants in the World as per the San Pellegrino sponsored 50 Best Restaurants in the World website.
+This Ruby Gem provides a CLI to view the Latest MLB Player Information, injuries, trades, etc.
 
 
 
