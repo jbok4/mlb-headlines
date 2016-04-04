@@ -7,12 +7,10 @@ class MlbHeadlines::Scraper
 
   attr_accessor :player, :position_team, :title, :time, :website_url, :description, :url, :doc
 
-  def self.get_page
+  def self.scrape
     doc = Nokogiri::HTML(open("http://www.cbssports.com/fantasy/baseball/players/news/all/both/"))
     @articles = [{},{},{},{},{},{},{},{},{},{},{}]
-  end 
   
-  def self.scrape_headlines
     #get players names
     doc.css("ul#playerNewsContent li .row").each do |row|
       row.css(".players-annotated p a").each_with_index do |z, index|
@@ -31,18 +29,14 @@ class MlbHeadlines::Scraper
        @articles[index][:title] = z.text.strip
       end
     end
-      #Headline.player
-      #Headline.position_team
-      #Headline.title
-      #Headline.description
-      #Headline.website_url
+    #get description
+    doc.css("ul#playerNewsContent li .row").each do |row|
+      row.css(".latest-updates p").each do |z, index|
+       @articles[index][:description] = z.text.strip
+      end
+    end
+    @articles
   end
 
-  def self.make_list
-    #self.scrape_headlines.each do |title| 
-     # MlbHeadlines::Headline.new_from_index_page(title)
-    #end  
-    puts "making list works"
-  end
 
 end 
