@@ -1,31 +1,32 @@
 class MlbHeadlines::Headline
 
-  attr_accessor :player, :position_team, :title, :time, :website_url, :description, :url, :doc
+  attr_accessor :player, :position_team, :title, :time, :website_url, :description, :url, :doc, :articles
 
-  def list_news(articles)
+
+  def list_news(@@articles)
     puts ""
     puts "---------- Latest MLB Headlines ----------"
     puts ""
-    articles.each_with_index do |headline, index|
+    @@articles.each_with_index do |headline, index|
       puts "#{index+1}. #{headline[:player]} - #{headline[:position_team]} - #{headline[:title]}"
     end
   end
 
   def headline_list
-    list_news(articles)
+    list_news(@@articles)
   end
 
-  def print_story(articles, input)
+  def print_story(@@articles, input)
     puts ""
-    puts "----------- #{articles[input-1][:player]} - #{articles[input-1][:position_team]} -----------"
+    puts "----------- #{@@articles[input][:player]} - #{@@articles[input][:position_team]} -----------"
     puts ""
-    puts "Title:              #{articles[input-1][:title]}"
-    puts "Time:               #{articles[input-1][:time]}"
-    puts "Link:               #{articles[input-1][:website_url]}"
+    puts "Title:              #{@@articles[input][:title]}"
+    puts "Time:               #{@@articles[input][:time]}"
+    puts "Link:               #{@@articles[input][:website_url]}"
     puts ""
     puts "---------------Description--------------"
     puts ""
-    puts "#{articles[input-1][:description]}"
+    puts "#{@@articles[input][:description]}"
     puts ""
   end
 
