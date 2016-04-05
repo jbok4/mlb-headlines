@@ -7,7 +7,7 @@ class MlbHeadlines::CLI
   end  
 
   def start
-    MlbHeadlines::Headline.headline_list
+    MlbHeadlines::Headline.list_news(articles)
     puts ""
     puts "Which headline would you like more information on? Enter the number:"
     input = gets.strip.to_i
