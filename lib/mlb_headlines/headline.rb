@@ -34,32 +34,3 @@ end
 
 
 
-  #def player #works
-  #  @player = @doc.css(".players-annotated p a").text.strip
-  #end  
-  
-  #def website_url #works
-  #  @website_url = @doc.css(".player-news-desc a").attribute("href").value
-  #end 
-
-  #def title #works
-  #  @title = @doc.css(".player-news-desc a").text.strip
-  #end    
-
-  #def position_team #works
-  #  @position_team = @doc.css(".players-annotated p span").text
-  #end 
-
-  #def time #works
-   # @time = @doc.css(".eyebrow").text.strip
-  #end
-
-  #def description #works
-  #  @description = @doc.css(".latest-updates p").text.strip
-  #end  
-
-  #def doc 
-   # @doc ||= Nokogiri::HTML(open(self.url))
-  #end 
-
-
