@@ -4,15 +4,9 @@ require "bundler/setup"
 require "mlb_headlines"
 require "open-uri"
 
-require_relative '../lib/mlb_headlines.rb'
-require_relative '../lib/mlb_headlines/headline.rb'
-require_relative '../lib/mlb_headlines/cli.rb'
-require_relative '../lib/mlb_headlines/scraper.rb'
-require_relative '../lib/mlb_headlines/version.rb'
 MlbHeadlines::CLI.new.call
 
-require "pry"
-#Pry.start
+
 
 require "irb"
 #IRB.start

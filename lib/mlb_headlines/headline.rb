@@ -12,7 +12,6 @@ def initialize(title = nil, url = nil)
   end
 
   def self.all
-    #print self.scrape_headlines
        @@all ||= self.scrape_headlines
   end
 
@@ -48,7 +47,7 @@ def initialize(title = nil, url = nil)
       @doc = Nokogiri::HTML(open('http://www.cbssports.com/fantasy/baseball/players/news/all/both/'))
       title = []
       @doc.css(".player-news-desc a").each do |node|        
-      title.push new(node.text.strip, node.a("href"))
+      title.push new(node.text.strip)
       end
       title
     end
