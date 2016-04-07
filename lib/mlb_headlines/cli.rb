@@ -1,6 +1,7 @@
 class MlbHeadlines::CLI
 
   def call
+    puts ""
     puts "Up To The Minute MLB Player News–Get It While It's Hot!"
     start
   end  
