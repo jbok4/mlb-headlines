@@ -10,7 +10,7 @@ class MlbHeadlines::CLI
     puts "---------- Latest MLB Headlines ----------"
     puts ""
     MlbHeadlines::Headline.all.each.with_index(1) do |headline, index|
-      puts "#{index}. #{headline.player} - #{headline.position_team} - #{headline.title}"
+      puts "#{index}. #{headline.title}"
     end
     puts ""
   end
@@ -43,7 +43,7 @@ class MlbHeadlines::CLI
       if input == "list"
         list
       elsif input.to_i == 0
-        if article = MlbHeadlines::Headline.find_by_name(input)
+        if article = MlbHeadlines::Headline.find_by_player(input)
           print_article(article)
         end
       elsif input.to_i > 0
@@ -55,9 +55,6 @@ class MlbHeadlines::CLI
       puts ""
       puts "Goodbye, enjoy today's games!"
   end
-
-
-
 end  
 
 

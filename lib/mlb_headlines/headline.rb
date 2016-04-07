@@ -1,10 +1,71 @@
+require "Nokogiri"
+require "pry"
+require "open-uri"
+
 class MlbHeadlines::Headline
 
   attr_accessor :player, :position_team, :title, :time, :website_url, :description, :url, :doc, :articles
 
-def initialize(title = nil, player = nil)
+def initialize(title = nil, url = nil)
     @title = title
-    @player = player
+    @url = url
+  end
+
+  def self.all
+    @@all ||= scrape_headlines
+  end
+
+  def self.find(id)
+    self.all[id-1]
+  end
+
+  def self.find_by_player(player)
+    self.all.detect do |m|
+      m.player.downcase.strip == player.downcase.strip ||
+      m.player.split("(").first.strip.downcase == player.downcase.strip
+    end
+  end
+
+  def description
+    @description ||= doc.css(".latest-updates p").text.strip
+  end
+
+  def player
+    @player ||= @doc.css(".players-annotated p a").text.strip
+  end
+
+  def position_team 
+   @position_team ||= @doc.css(".players-annotated p span").text
+  end 
+
+  def time 
+    @time ||= @doc.css(".eyebrow").text.strip
+  end
+
+  private
+    def self.scrape_headlines
+      doc = Nokogiri::HTML(open('http://www.cbssports.com/fantasy/baseball/players/news/all/both/'))
+      @title ||= @doc.css(".player-news-desc a").text.strip
+    end
+  
+    def doc
+      @doc ||= Nokogiri::HTML(open('http://www.cbssports.com/fantasy/baseball/players/news/all/both/'))
+    end
+
+end 
+
+=begin
+require "Nokogiri"
+require "pry"
+require "open-uri"
+
+class MlbHeadlines::Headline
+
+  attr_accessor :player, :position_team, :title, :time, :website_url, :description, :url, :doc, :articles
+
+def initialize(title = nil, url = nil)
+    @title = title
+    @url = url
   end
 
   def self.all
@@ -31,16 +92,23 @@ def initialize(title = nil, player = nil)
   end
 
   private
-    #def self.scrape
-     # doc = Nokogiri::HTML(open("http://www.cbssports.com/fantasy/baseball/players/news/all/both/"))
-      #names = doc.search("h4[itemprop='name'] a[itemprop='url']")
-      #names.collect{|e| new(e.text.strip, "http://imdb.com#{e.attr("href").split("?").first.strip}")}
-     # players = doc.css("ul#playerNewsContent li .row").each do |row|
-     #   row.css(".players-annotated p a").each_with_index do |z, index|
-      #  player = z.text.strip
-      #  end
-     # end
-    #end
+    def self.scrape
+      doc = Nokogiri::HTML(open('http://www.cbssports.com/fantasy/baseball/players/news/all/both/'))
+      title = doc.search("player-news-desc[h4='title'] a[h4='url']")
+      titles.collect{|title| new(title.text.strip, "http://imdb.com#{title.attr("href").split("?").first.strip}")}
+    end
+
+
+
+     #doc = Nokogiri::HTML(open("http://www.cbssports.com/fantasy/baseball/players/news/all/both/"))
+      names = doc.search("h4[itemprop='name'] a[itemprop='url']")
+      names.collect{|e| new(e.text.strip, "http://imdb.com#{e.attr("href").split("?").first.strip}")}
+    players = doc.css("ul#playerNewsContent li .row").each do |row|
+     row.css(".players-annotated p a").each_with_index do |z, index|
+      player = z.text.strip
+      end
+    end
+   end
 
     def scrape
     doc = Nokogiri::HTML(open("http://www.cbssports.com/fantasy/baseball/players/news/all/both/"))
@@ -79,8 +147,7 @@ def initialize(title = nil, player = nil)
       @doc ||= Nokogiri::HTML(open(self.url))
     end
 
-  
 end 
 
-
+=end
 
