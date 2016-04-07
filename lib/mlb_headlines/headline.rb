@@ -12,7 +12,9 @@ def initialize(title = nil, url = nil)
   end
 
   def self.all
-    @@all ||= scrape_headlines
+    print scrape_headlines
+       @@all ||= scrape_headlines
+   end
   end
 
   def self.find(id)
@@ -27,7 +29,7 @@ def initialize(title = nil, url = nil)
   end
 
   def description
-    @description ||= doc.css(".latest-updates p").text.strip
+    @description ||= @doc.css(".latest-updates p").text.strip
   end
 
   def player
@@ -44,8 +46,8 @@ def initialize(title = nil, url = nil)
 
   private
     def self.scrape_headlines
-      doc = Nokogiri::HTML(open('http://www.cbssports.com/fantasy/baseball/players/news/all/both/'))
-      @title ||= @doc.css(".player-news-desc a").text.strip
+      @doc = Nokogiri::HTML(open('http://www.cbssports.com/fantasy/baseball/players/news/all/both/'))
+      title ||= @doc.css(".player-news-desc a").text.strip
     end
   
     def doc
