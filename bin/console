@@ -2,7 +2,7 @@
 
 require "bundler/setup"
 require "open-uri"
-require_relative "../lib/mlb_headlines"
+require "mlb_headlines"
 
 MlbHeadlines::CLI.new.call
 
