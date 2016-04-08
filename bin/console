@@ -1,10 +1,8 @@
 #!/usr/bin/env ruby
 
 require "bundler/setup"
-require "mlb_headlines"
 require "open-uri"
-
-MlbHeadlines::CLI.new.call
+require "mlb_headlines"
 
 
 
