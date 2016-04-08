@@ -29,8 +29,6 @@ class MlbHeadlines::CLI
       input = gets.strip
       if input == "list"
         list
-      elsif input == 1
-        
       end
     end
       puts ""
