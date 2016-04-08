@@ -40,5 +40,3 @@ class MlbHeadlines::Headline
   end
 
 end
-
-
