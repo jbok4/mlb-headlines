@@ -16,22 +16,37 @@ class MlbHeadlines::CLI
     puts ""
   end
 
+
+  def list_articles
+    puts ""
+    puts "---------- More Information ----------"
+    puts ""
+    MlbHeadlines::Scraper.all.each do |headline|
+      puts "#{headline.title}"
+    end
+    puts ""
+  end
+
+
   def start
     list
     input = nil
     while input != "exit"
       puts ""
-      #puts "Which headline would you like more information on? Enter the number:"
-      #puts ""
+      puts "Which headline would you like more information on? Enter the number:"
+      puts ""
       puts "Enter list to see the list again."
       puts "Enter exit to end the program."
       puts ""
       input = gets.strip
       if input == "list"
         list
+      elsif input == "1"
+        list_articles
       end
-    end
       puts ""
       puts "Goodbye, enjoy today's games!"
-  end
-end  
+    end
+  end 
+
+end 

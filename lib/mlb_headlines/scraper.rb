@@ -1,40 +1,32 @@
-=begin 
 require "Nokogiri"
 require "pry"
 require "open-uri"
 
 class MlbHeadlines::Scraper
-  attr_accessor :player, :position_team, :title, :time, :website_url, :description, :url, :doc, :articles
+
+  attr_accessor :player, :position_team, :title, :time, :website_url, :description, :url, :doc, :articles, :article
 
 
-
-
-  def scrape
-    doc = Nokogiri::HTML(open("http://www.cbssports.com/fantasy/baseball/players/news/all/both/"))
-    @articles = [{},{},{},{},{},{},{},{},{},{}]
-  
-    #get players names
-    doc.css("ul#playerNewsContent li .row").each do |row|
-      row.css(".players-annotated p a").each_with_index do |z, index|
-        @articles[index][:player] = z.text.strip
-      end
-
-    #get players team and position
-    doc.css(".players-annotated p span").each do |z, index|
-       @articles[index][:position_team] = z.text.strip
-      end
-
-    #get title
-    doc.css(".player-news-desc a").each do |z, index|
-       @articles[index][:title] = z.text.strip
-      end
-
-    #get description
-    doc.css(".latest-updates p").each do |z, index|
-       @articles[index][:description] = z.text.strip
-      end
-  @articles
+  def initialize(title = nil, article = nil)
+    @title = title
+    @article = article
   end
 
-end 
-=end
+  def self.all
+    @@all ||= self.scrape_headlines
+  end
+
+  def self.scrape_headlines
+    @doc = Nokogiri::HTML(open('http://www.cbssports.com/fantasy/baseball/players/news/all/both/'))
+    title = []
+    @doc.css(".latest-updates p").each do |node|         
+    title.push new(node.text.strip)
+    end
+    title
+  end
+  
+  def doc
+    @doc ||= Nokogiri::HTML(open('http://www.cbssports.com/fantasy/baseball/players/news/all/both/'))
+  end
+
+end
