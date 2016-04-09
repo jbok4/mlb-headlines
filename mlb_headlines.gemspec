@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "mlb_headlines"
   spec.version       = MlbHeadlines::VERSION
   spec.authors       = ["Jaclyn Ciringione"]
-  spec.email         = ["jbok4@aol.com"]
+  spec.email         = ["jciringione@gmail.com"]
 
   spec.summary       = %q{The Latest player news from the MLB.}
   spec.description   = %q{The Latest player news from the MLB - Keeping you up to date so you can win your fantasy league.}
