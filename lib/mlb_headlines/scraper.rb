@@ -16,6 +16,7 @@ class MlbHeadlines::Scraper
     @@all ||= self.scrape_headlines
   end
 
+  #this scrapes the descriptions of the headline, the story.
   def self.scrape_headlines
     @doc = Nokogiri::HTML(open('http://www.cbssports.com/fantasy/baseball/players/news/all/both/'))
     title = []
