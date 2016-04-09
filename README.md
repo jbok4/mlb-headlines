@@ -22,7 +22,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/mlb_headlines.
+Bug reports and pull requests are welcome on GitHub at https://github.com/jbok4/mlb-headlines.
 
 
 ## License
