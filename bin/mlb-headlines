@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require "mlb_headlines"
+require_relative "../config/environment.rb"
 
 MlbHeadlines::CLI.new.call
