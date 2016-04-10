@@ -1,7 +1,3 @@
-require "Nokogiri"
-require "pry"
-require "open-uri"
-
 class MlbHeadlines::Headline
 
   attr_accessor :player, :position_team, :title, :time, :website_url, :description, :url, :doc, :articles, :article

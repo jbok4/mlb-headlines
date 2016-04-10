@@ -54,11 +54,14 @@ class MlbHeadlines::CLI
     puts "Goodbye, enjoy today's games!"
   end 
 
-
-  def list_articles1
+  def intro
     puts ""
     puts "---------- More Information ----------"
     puts ""
+  end
+
+  def list_articles1
+    intro
     paragraphs = []
     MlbHeadlines::Scraper.all.each do |headline|
       paragraphs << headline.title.strip
@@ -68,9 +71,7 @@ class MlbHeadlines::CLI
   end
 
   def list_articles2
-    puts ""
-    puts "---------- More Information ----------"
-    puts ""
+    intro
     paragraphs = []
     MlbHeadlines::Scraper.all.each do |headline|
       paragraphs << headline.title.strip
@@ -80,9 +81,7 @@ class MlbHeadlines::CLI
   end
 
   def list_articles3
-    puts ""
-    puts "---------- More Information ----------"
-    puts ""
+    intro
     paragraphs = []
     MlbHeadlines::Scraper.all.each do |headline|
       paragraphs << headline.title.strip
@@ -92,9 +91,7 @@ class MlbHeadlines::CLI
   end
 
   def list_articles4
-    puts ""
-    puts "---------- More Information ----------"
-    puts ""
+    intro
     paragraphs = []
     MlbHeadlines::Scraper.all.each do |headline|
       paragraphs << headline.title.strip
@@ -104,9 +101,7 @@ class MlbHeadlines::CLI
   end
 
   def list_articles5
-    puts ""
-    puts "---------- More Information ----------"
-    puts ""
+    intro
     paragraphs = []
     MlbHeadlines::Scraper.all.each do |headline|
       paragraphs << headline.title.strip
@@ -116,9 +111,7 @@ class MlbHeadlines::CLI
   end
 
   def list_articles6
-    puts ""
-    puts "---------- More Information ----------"
-    puts ""
+    intro
     paragraphs = []
     MlbHeadlines::Scraper.all.each do |headline|
       paragraphs << headline.title.strip
@@ -128,9 +121,7 @@ class MlbHeadlines::CLI
   end
 
   def list_articles7
-    puts ""
-    puts "---------- More Information ----------"
-    puts ""
+    intro
     paragraphs = []
     MlbHeadlines::Scraper.all.each do |headline|
       paragraphs << headline.title.strip
@@ -140,9 +131,7 @@ class MlbHeadlines::CLI
   end
 
   def list_articles8
-    puts ""
-    puts "---------- More Information ----------"
-    puts ""
+    intro
     paragraphs = []
     MlbHeadlines::Scraper.all.each do |headline|
       paragraphs << headline.title.strip
@@ -152,9 +141,7 @@ class MlbHeadlines::CLI
   end
 
   def list_articles9
-    puts ""
-    puts "---------- More Information ----------"
-    puts ""
+    intro
     paragraphs = []
     MlbHeadlines::Scraper.all.each do |headline|
       paragraphs << headline.title.strip
@@ -164,9 +151,7 @@ class MlbHeadlines::CLI
   end
 
   def list_articles10
-    puts ""
-    puts "---------- More Information ----------"
-    puts ""
+    intro
     paragraphs = []
     MlbHeadlines::Scraper.all.each do |headline|
       paragraphs << headline.title.strip

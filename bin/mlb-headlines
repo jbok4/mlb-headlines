@@ -3,6 +3,3 @@
 require "mlb_headlines"
 
 MlbHeadlines::CLI.new.call
-
-require "irb"
-IRB.start
