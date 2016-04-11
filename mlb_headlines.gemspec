@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{The Latest player news from the MLB.}
   spec.description   = %q{The Latest player news from the MLB - Keeping you up to date so you can win your fantasy league.}
-  spec.homepage      = "https://github.com/jbok4/mlb-headlines/"
+  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
@@ -30,6 +30,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.11"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
-  spec.add_development_dependency "nokogiri", ">= 0"
   spec.add_development_dependency "pry", ">= 0"
 end
