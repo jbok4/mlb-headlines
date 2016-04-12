@@ -11,6 +11,7 @@ $ gem install mlb_headlines
 ## Usage
 
 Type the below and follow the on screen prompts.
+$ bundle install
 
 $ bin/console
 
