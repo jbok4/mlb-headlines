@@ -15,7 +15,7 @@ class MlbHeadlines::Headline
   def self.scrape_headlines
     @doc = Nokogiri::HTML(open('http://www.cbssports.com/fantasy/baseball/players/news/all/both/'))
     title = []
-    @doc.css(".player-news-desc a").each do |node|         
+    @doc.css(".player-news-desc a:first-child").each do |node|         
     title.push new(node.text.strip)
     end
     title
