@@ -12,6 +12,8 @@ class MlbHeadlines::Headline
     @@all ||= MlbHeadlines::Scraper.scrape
   end
 
-  
+  def self.destroy
+    @@all.clear
+  end
 
 end
