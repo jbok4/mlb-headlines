@@ -3,7 +3,4 @@
 require "bundler/setup"
 require "mlb_headlines"
 
-#MlbHeadlines::CLI.new.call
-
-require "irb"
-IRB.start
+MlbHeadlines::CLI.new.call

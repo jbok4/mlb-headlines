@@ -29,26 +29,10 @@ class MlbHeadlines::CLI
       input = gets.strip
       if input == "list"
         list
-      elsif input == "1"
-        list_articles1
-      elsif input == "2"
-        list_articles2
-      elsif input == "3"
-        list_articles3
-      elsif input == "4"
-        list_articles4
-      elsif input == "5"
-        list_articles5
-      elsif input == "6"
-        list_articles6
-      elsif input == "7"
-        list_articles7
-      elsif input == "8"
-        list_articles8
-      elsif input == "9"
-        list_articles9
-      elsif input == "10"
-        list_articles10
+      else
+        intro
+        puts MlbHeadlines::Headline.all[input.to_i-1].article
+        
       end
     end
     puts "Goodbye, enjoy today's games!"
@@ -59,106 +43,5 @@ class MlbHeadlines::CLI
     puts "---------- More Information ----------"
     puts ""
   end
-
-  def list_articles1
-    intro
-    paragraphs = []
-    MlbHeadlines::Scraper.all.each do |headline|
-      paragraphs << headline.title.strip
-    end
-    print paragraphs[0..1].join(" ")
-    puts ""
-  end
-
-  def list_articles2
-    intro
-    paragraphs = []
-    MlbHeadlines::Scraper.all.each do |headline|
-      paragraphs << headline.title.strip
-    end
-    print paragraphs[2..3].join(" ")
-    puts ""
-  end
-
-  def list_articles3
-    intro
-    paragraphs = []
-    MlbHeadlines::Scraper.all.each do |headline|
-      paragraphs << headline.title.strip
-    end
-    print paragraphs[4..5].join(" ")
-    puts ""
-  end
-
-  def list_articles4
-    intro
-    paragraphs = []
-    MlbHeadlines::Scraper.all.each do |headline|
-      paragraphs << headline.title.strip
-    end
-    print paragraphs[6..7].join(" ")
-    puts ""
-  end
-
-  def list_articles5
-    intro
-    paragraphs = []
-    MlbHeadlines::Scraper.all.each do |headline|
-      paragraphs << headline.title.strip
-    end
-    print paragraphs[8..9].join(" ")
-    puts ""
-  end
-
-  def list_articles6
-    intro
-    paragraphs = []
-    MlbHeadlines::Scraper.all.each do |headline|
-      paragraphs << headline.title.strip
-    end
-    print paragraphs[10..11].join(" ")
-    puts ""
-  end
-
-  def list_articles7
-    intro
-    paragraphs = []
-    MlbHeadlines::Scraper.all.each do |headline|
-      paragraphs << headline.title.strip
-    end
-    print paragraphs[12..13].join(" ")
-    puts ""
-  end
-
-  def list_articles8
-    intro
-    paragraphs = []
-    MlbHeadlines::Scraper.all.each do |headline|
-      paragraphs << headline.title.strip
-    end
-    print paragraphs[14..15].join(" ")
-    puts ""
-  end
-
-  def list_articles9
-    intro
-    paragraphs = []
-    MlbHeadlines::Scraper.all.each do |headline|
-      paragraphs << headline.title.strip
-    end
-    print paragraphs[16..17].join(" ")
-    puts ""
-  end
-
-  def list_articles10
-    intro
-    paragraphs = []
-    MlbHeadlines::Scraper.all.each do |headline|
-      paragraphs << headline.title.strip
-    end
-    print paragraphs[18..19].join(" ")
-    puts ""
-  end
- 
 
 end 

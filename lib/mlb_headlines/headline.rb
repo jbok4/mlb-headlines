@@ -1,6 +1,6 @@
 class MlbHeadlines::Headline
 
-  attr_accessor :player, :position_team, :title, :time, :website_url, :description, :url, :doc, :articles, :article
+  attr_accessor :title, :article
 
 
   def initialize(title = nil, article = nil)
@@ -9,21 +9,9 @@ class MlbHeadlines::Headline
   end
 
   def self.all
-    @@all ||= self.scrape_headlines
+    @@all ||= MlbHeadlines::Scraper.scrape
   end
 
-  #this scrapes the headlines from the main list.
-  def self.scrape_headlines
-    @doc = Nokogiri::HTML(open('http://www.cbssports.com/fantasy/baseball/players/news/all/both/'))
-    title = []
-    @doc.css(".player-news-desc h4 a").each do |node|         
-    title.push new(node.text.strip)
-    end
-    title
-  end
   
-  def doc
-    @doc ||= Nokogiri::HTML(open('http://www.cbssports.com/fantasy/baseball/players/news/all/both/'))
-  end
 
 end
