@@ -24,7 +24,7 @@ class MlbHeadlines::CLI
       puts "Which headline would you like more information on? Enter the number:"
       puts ""
       puts "Enter list to see the list again."
-      #puts "Enter refresh to refresh the list"
+      puts "Enter refresh to refresh the list"
       puts "Enter exit to end the program."
       puts ""
       input = gets.strip
@@ -33,10 +33,10 @@ class MlbHeadlines::CLI
       elsif input.to_i.between?(1,10) == true
         intro
         puts MlbHeadlines::Headline.all[input.to_i-1].article
-      # elsif input == "refresh"
-      #   MlbHeadlines::Headline.destroy
-      #   MlbHeadlines::Headline.all
-      #   list
+       elsif input == "refresh"
+         MlbHeadlines::Headline.destroy
+         MlbHeadlines::Headline.all
+         list
       elsif input == "exit"
         sleep 1
         puts "Goodbye, enjoy today's games!"
